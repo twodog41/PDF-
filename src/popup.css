@@ -1,0 +1,16 @@
+:root { font-family: Inter, "Microsoft YaHei", system-ui, sans-serif; color: #12213f; background: #f6f8fc; }
+* { box-sizing: border-box; }
+body { margin: 0; width: 340px; }
+.popup-shell { padding: 16px; }
+header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+header img { border-radius: 10px; }
+header div { display: grid; gap: 2px; }
+header strong { font-size: 16px; }
+header span { color: #63708a; font-size: 11px; }
+nav { display: grid; gap: 7px; }
+button { width: 100%; display: flex; align-items: center; gap: 10px; border: 1px solid #e0e6f0; background: #fff; color: inherit; padding: 9px 11px; border-radius: 11px; cursor: pointer; font: inherit; text-align: left; }
+button:hover, button:focus-visible { border-color: #155eef; box-shadow: 0 4px 14px #155eef18; outline: none; }
+button b { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 8px; color: #155eef; background: #eaf0ff; font-size: 12px; }
+button span { font-size: 13px; font-weight: 650; }
+footer { display: flex; align-items: center; justify-content: center; gap: 7px; color: #71809b; font-size: 10px; margin-top: 13px; }
+footer span { width: 7px; height: 7px; border-radius: 50%; background: #17a673; box-shadow: 0 0 0 3px #17a6731f; }

@@ -1,0 +1,5 @@
+{
+  "extName": { "message": "FilePassport — Local PDF Tools" },
+  "extDescription": { "message": "Merge, split, target-size compress, create PDFs from images or DOCX, and export PDF pages locally." },
+  "extAction": { "message": "Open FilePassport" }
+}

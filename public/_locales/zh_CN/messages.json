@@ -1,0 +1,5 @@
+{
+  "extName": { "message": "FilePassport — 本地 PDF 工具" },
+  "extDescription": { "message": "合并、拆分、目标压缩、图片与 DOCX 转 PDF、PDF 转图片。无需登录，文件不上传。" },
+  "extAction": { "message": "打开 FilePassport" }
+}
