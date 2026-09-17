@@ -2,90 +2,60 @@
 
 > 文件不过云，处理完就走。
 
-PDF小匠是一个面向 Microsoft Edge 和 Google Chrome 的本地 PDF 扩展。无需登录，没有广告，文件不会上传到服务器。
+PDF小匠是一款适用于 Microsoft Edge 和 Google Chrome 的本地 PDF 浏览器扩展。无需登录，没有广告，文件不会上传到服务器；打开扩展、选择文件、完成处理并下载结果即可。
 
 ![PDF小匠首页](store-assets/screenshot-home-1280x800.png)
 
+## 特色
+
+- **本地处理**：文件始终保留在你的设备上
+- **简单直接**：只提供日常最常用的 PDF 功能
+- **目标压缩**：面向 2 MB、5 MB、10 MB 等上传大小限制
+- **无需账户**：不登录、不订阅、没有广告或使用统计
+- **双浏览器支持**：同一扩展支持 Edge 和 Chrome
+
 ## 功能
 
-- 合并 PDF，并通过缩略图调整页面顺序
-- 拆分 PDF、提取指定页或逐页导出 ZIP
-- 尽量压缩到 2 MB、5 MB、10 MB 等目标大小
-- JPG、PNG、DOCX 转为 PDF
-- PDF 逐页导出 JPG 或 PNG
+- 合并多个 PDF，并通过缩略图调整页面顺序
+- 拆分 PDF、提取指定页或逐页导出
+- 将 PDF 尽量压缩到指定大小
+- 将 JPG、PNG 或 DOCX 转为 PDF
+- 将 PDF 页面导出为 JPG 或 PNG
 
-DOCX 采用本地预览后调用浏览器打印。普通文档效果最佳；复杂表格、浮动对象、特殊字体和 Word 动态域可能存在排版差异。
+## 使用方法
 
-## 隐私设计
+1. 点击浏览器工具栏中的 **PDF小匠**图标。
+2. 选择需要的 PDF 工具。
+3. 添加本地文件并按页面提示调整选项。
+4. 开始处理并下载生成的文件。
 
-- Manifest V3 中不声明 `permissions` 或 `host_permissions`
-- 不包含服务器、账户、统计 SDK、广告或远程执行代码
-- 所有运行时代码随扩展打包，断网可用
-- 文件只在当前扩展页面的内存中处理
-- 构建会自动检查权限、包结构和依赖漏洞
+所有处理都在当前浏览器页面中完成。关闭页面后，扩展不会保留已选择的文件。
 
-完整说明见 [隐私政策](PRIVACY.md) 和 [安全政策](SECURITY.md)。
+## 本地安装
 
-## 本地运行
-
-需要 Node.js 24 或更高版本。
+商店版本发布前，可以通过开发者模式安装：
 
 ```bash
 npm ci
-npm run dev
+npm run build
 ```
 
-浏览器开发者模式安装：
+然后打开 `edge://extensions` 或 `chrome://extensions`，开启“开发人员模式”，选择“加载解压缩的扩展”，并加载生成的 `dist` 目录。
 
-1. 执行 `npm run build`。
-2. 打开 `edge://extensions` 或 `chrome://extensions`。
-3. 开启“开发人员模式”。
-4. 选择“加载解压缩的扩展”，加载 `dist` 目录。
-
-## 验证与打包
-
-```bash
-npm test          # 页码解析和压缩预算单元检查
-npm run e2e       # 使用本机 Chrome/Edge 验证五条工具链
-npm audit         # 依赖安全审计
-npm run package   # 生成双商店 ZIP 和 SHA-256
-```
-
-商店包输出到 `artifacts/`。Chrome 和 Edge 使用同一套源代码，但分别生成命名清晰的上传包。
-
-## 项目结构
-
-```text
-src/              扩展 UI 和本地文件处理
-public/           Manifest、语言文件、扩展图标
-scripts/          构建验证、E2E、品牌素材和打包脚本
-tests/            最小单元检查
-store-assets/     商店截图和宣传图
-docs/             GitHub Pages 隐私与支持页面
-artifacts/        可上传商店包（构建生成，不入库）
-```
-
-## 发布
-
-详细字段、审核答案和账号操作见 [STORE_SUBMISSION.md](STORE_SUBMISSION.md)。推送 `v*` 标签后，GitHub Actions 会构建 ZIP、生成校验和并创建 GitHub Release。
-
-```bash
-git tag v1.0.0
-git push origin v1.0.0
-```
-
-## 当前边界
+## 使用边界
 
 - 不支持旧版 `.doc`，请先另存为 `.docx`
 - 不支持设有打开密码的 PDF
-- 强压缩可能将页面栅格化，导致文字搜索、链接、表单和数字签名失效
-- 极端目标大小不一定能在可读质量下达到；扩展会报告实际结果
-- 单文件上限为 500 MB，实际能力还取决于设备内存
+- DOCX 的复杂表格、文本框和特殊字体可能与 Microsoft Word 略有差异
+- 强压缩可能影响文字搜索、链接、表单和数字签名
+- 极端目标大小不一定能在保持可读性的同时达到
 
-## License
+## 隐私与许可
 
-[MIT](LICENSE)。第三方组件见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+PDF小匠不申请网站访问权限，不包含服务器、账户、广告、统计 SDK 或远程执行代码。详情见[隐私政策](PRIVACY.md)和[安全政策](SECURITY.md)。
+
+项目采用 [MIT License](LICENSE)，第三方组件许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ---
 
-**English:** PDF小匠 is a zero-permission, offline Chromium extension for merging, splitting, target-size compressing, creating, and exporting PDFs. The project ships no backend, analytics, ads, accounts, or remotely hosted code.
+**English:** PDF小匠 is a zero-permission, offline PDF toolkit for Edge and Chrome. It merges, splits, reorders, compresses, creates, and exports PDFs without uploading files.
