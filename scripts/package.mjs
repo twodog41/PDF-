@@ -11,7 +11,7 @@ const version = JSON.parse(readFileSync(join(dist, 'manifest.json'), 'utf8')).ve
 
 mkdirSync(artifacts, { recursive: true });
 for (const name of readdirSync(artifacts)) {
-  if (/^filepassport-(?:chrome|edge)-.+\.zip$|^SHA256SUMS\.txt$/.test(name)) rmSync(join(artifacts, name));
+  if (/^pdf-xiaojiang-(?:chrome|edge)-.+\.zip$|^SHA256SUMS\.txt$/.test(name)) rmSync(join(artifacts, name));
 }
 
 const entries = {};
@@ -20,7 +20,7 @@ for (const path of publishableFiles(dist).files) {
   entries[name] = [new Uint8Array(readFileSync(path)), { mtime: new Date('2026-01-01T00:00:00Z') }];
 }
 const archive = zipSync(entries, { level: 9 });
-const names = [`filepassport-chrome-${version}.zip`, `filepassport-edge-${version}.zip`];
+const names = [`pdf-xiaojiang-chrome-${version}.zip`, `pdf-xiaojiang-edge-${version}.zip`];
 for (const name of names) writeFileSync(join(artifacts, name), archive);
 const checksums = names.map((name) => `${createHash('sha256').update(readFileSync(join(artifacts, name))).digest('hex')}  ${name}`).join('\n');
 writeFileSync(join(artifacts, 'SHA256SUMS.txt'), `${checksums}\n`);

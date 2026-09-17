@@ -34,7 +34,7 @@ async function samplePdf(pages = 2) {
   const font = await pdf.embedFont(StandardFonts.Helvetica);
   for (let index = 0; index < pages; index += 1) {
     const page = pdf.addPage([420, 595]);
-    page.drawText(`FilePassport test page ${index + 1}`, { x: 48, y: 520, size: 20, font });
+    page.drawText(`PDF Xiaojiang test page ${index + 1}`, { x: 48, y: 520, size: 20, font });
   }
   return Buffer.from(await pdf.save());
 }
@@ -65,7 +65,7 @@ function sampleDocx() {
   const files = {
     '[Content_Types].xml': strToU8('<?xml version="1.0"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>'),
     '_rels/.rels': strToU8('<?xml version="1.0"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>'),
-    'word/document.xml': strToU8('<?xml version="1.0"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>FilePassport local DOCX preview</w:t></w:r></w:p><w:sectPr><w:pgSz w:w="11906" w:h="16838"/></w:sectPr></w:body></w:document>'),
+    'word/document.xml': strToU8('<?xml version="1.0"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body><w:p><w:r><w:t>PDF Xiaojiang local DOCX preview</w:t></w:r></w:p><w:sectPr><w:pgSz w:w="11906" w:h="16838"/></w:sectPr></w:body></w:document>'),
   };
   return Buffer.from(zipSync(files));
 }
@@ -156,7 +156,7 @@ try {
   await page.goto(`${url}/app.html?tool=to-pdf`);
   await page.locator('#file-input').setInputFiles({ name: 'simple.docx', mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', buffer: sampleDocx() });
   await page.waitForSelector('[data-action="print-docx"]:not([disabled])');
-  assert.match(await page.locator('#docx-preview').innerText(), /FilePassport local DOCX preview/);
+  assert.match(await page.locator('#docx-preview').innerText(), /PDF Xiaojiang local DOCX preview/);
 
   await page.goto(`${url}/popup.html`);
   assert.equal(await page.locator('[data-tool]').count(), 5);

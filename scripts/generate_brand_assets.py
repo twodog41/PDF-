@@ -47,6 +47,8 @@ def draw_logo(size: int, padding_ratio: float = 0.125):
 for size in (16, 32, 48, 128):
     draw_logo(size).save(ICON_DIR / f"icon-{size}.png")
 
+draw_logo(300).save(STORE_DIR / "logo-300x300.png")
+
 
 def promo(width: int, height: int, path: Path, include_text: bool):
     image = Image.new("RGB", (width, height), BLUE_DARK)
@@ -66,7 +68,7 @@ def promo(width: int, height: int, path: Path, include_text: bool):
         draw.line((x+w*.2, y+h*.35, x+w*.8, y+h*.35), fill="#8FAEF5", width=max(2, width//220))
         draw.line((x+w*.2, y+h*.48, x+w*.67, y+h*.48), fill="#B0C4F5", width=max(2, width//220))
     if include_text:
-        draw.text((int(width*.27), int(height*.34)), "FilePassport", font=font(int(height*.12), True), fill="white")
+        draw.text((int(width*.27), int(height*.34)), "PDF小匠", font=font(int(height*.12), True), fill="white")
         draw.text((int(width*.27), int(height*.53)), "LOCAL · PRIVATE · OPEN", font=font(int(height*.035), True), fill="#BFD0FF")
     image.save(path, quality=95)
 

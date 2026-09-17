@@ -17,4 +17,4 @@ Please report a vulnerability privately through GitHub Security Advisories inste
 - The manifest requests no extension or host permissions.
 - Dependencies are bundled locally and checked with `npm audit` before release.
 
-PDF and DOCX parsers are complex. A malformed file may still exhaust browser memory or trigger a bug in an upstream parser. Keep the browser and FilePassport updated.
+PDF and DOCX parsers are complex. A malformed file may still exhaust browser memory or trigger a bug in an upstream parser. Keep the browser and PDF小匠 updated.

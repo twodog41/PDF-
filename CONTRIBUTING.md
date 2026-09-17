@@ -8,4 +8,4 @@ Small, reproducible changes are welcome.
 4. Run `npm run e2e`, `npm audit`, and `npm run package` before opening a pull request.
 5. Add one focused test when changing parsing, page selection, output generation, or security behavior.
 
-Please do not submit unrelated utility features. FilePassport has one purpose: private local creation and processing of PDFs.
+Please do not submit unrelated utility features. PDF小匠 has one purpose: private local creation and processing of PDFs.

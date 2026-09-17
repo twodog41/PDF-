@@ -67,7 +67,7 @@ function shell(content: string) {
     <header class="topbar">
       <button class="brand" data-home aria-label="返回首页">
         <img src="./icons/icon-48.png" alt="" width="38" height="38">
-        <span><b>FilePassport</b><small>LOCAL DOCUMENT TOOLS</small></span>
+        <span><b>PDF小匠</b><small>LOCAL PDF TOOLS</small></span>
       </button>
       <nav class="topnav" aria-label="主要工具">
         ${TOOLS.map((tool) => `<button class="${currentTool === tool.id ? 'active' : ''}" data-tool="${tool.id}">${tool.title.replace('到目标大小', '')}</button>`).join('')}
@@ -76,7 +76,7 @@ function shell(content: string) {
     </header>
     <main>${content}</main>
     <footer class="site-footer">
-      <span>FilePassport 1.0</span><span>零账号 · 零上传 · 零广告</span><span>MIT 开源</span>
+      <span>PDF小匠 1.0</span><span>零账号 · 零上传 · 零广告</span><span>MIT 开源</span>
     </footer>`;
 }
 
@@ -309,7 +309,7 @@ async function handleAction(action: string) {
   try {
     if (action === 'merge') {
       await runBusy('正在合并页面', async () => {
-        const output = await buildPdfFromPages(files, pageRefs, 'filepassport-merged.pdf');
+        const output = await buildPdfFromPages(files, pageRefs, 'pdf-xiaojiang-merged.pdf');
         downloadOutput(output); showSuccess(`已生成 ${formatBytes(output.bytes.length)} 的合并文件`);
       });
     }

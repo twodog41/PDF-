@@ -1,10 +1,10 @@
-# FilePassport
+# PDF小匠
 
 > 文件不过云，处理完就走。
 
-FilePassport 是一个面向 Microsoft Edge 和 Google Chrome 的本地 PDF 扩展。无需登录，没有广告，文件不会上传到服务器。
+PDF小匠是一个面向 Microsoft Edge 和 Google Chrome 的本地 PDF 扩展。无需登录，没有广告，文件不会上传到服务器。
 
-![FilePassport 首页](store-assets/screenshot-home-1280x800.png)
+![PDF小匠首页](store-assets/screenshot-home-1280x800.png)
 
 ## 功能
 
@@ -88,4 +88,4 @@ git push origin v1.0.0
 
 ---
 
-**English:** FilePassport is a zero-permission, offline Chromium extension for merging, splitting, target-size compressing, creating, and exporting PDFs. The project ships no backend, analytics, ads, accounts, or remotely hosted code.
+**English:** PDF小匠 is a zero-permission, offline Chromium extension for merging, splitting, target-size compressing, creating, and exporting PDFs. The project ships no backend, analytics, ads, accounts, or remotely hosted code.

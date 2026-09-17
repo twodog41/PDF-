@@ -1,8 +1,8 @@
-# FilePassport 隐私政策 / Privacy Policy
+# PDF小匠隐私政策 / Privacy Policy
 
 生效日期 / Effective date: 2026-09-17
 
-FilePassport 是适用于 Microsoft Edge 和 Google Chrome 的本地文档处理扩展。
+PDF小匠是适用于 Microsoft Edge 和 Google Chrome 的本地文档处理扩展。
 
 ## 我们处理什么
 
@@ -16,11 +16,11 @@ FilePassport 是适用于 Microsoft Edge 和 Google Chrome 的本地文档处理
 - 不把文件写入开发者控制的服务器
 - 不加载远程执行代码
 
-关闭处理页面后，扩展不保留已选择文件。用户下载的输出文件由浏览器保存到用户选择的位置。浏览器和扩展商店自身的安装、更新及遥测行为受其各自隐私政策约束，不由 FilePassport 控制。
+关闭处理页面后，扩展不保留已选择文件。用户下载的输出文件由浏览器保存到用户选择的位置。浏览器和扩展商店自身的安装、更新及遥测行为受其各自隐私政策约束，不由 PDF小匠控制。
 
 ## 权限和网络
 
-FilePassport 1.0 不申请 Chrome/Edge 扩展权限或网站访问权限。运行时代码和依赖均包含在扩展包内。网络断开时仍可使用全部文档处理功能。
+PDF小匠 1.0 不申请 Chrome/Edge 扩展权限或网站访问权限。运行时代码和依赖均包含在扩展包内。网络断开时仍可使用全部文档处理功能。
 
 ## 第三方组件
 
@@ -32,4 +32,4 @@ FilePassport 1.0 不申请 Chrome/Edge 扩展权限或网站访问权限。运�
 
 ---
 
-FilePassport is a local document-processing extension for Microsoft Edge and Google Chrome. Files explicitly selected by the user are processed only in the extension page's memory to create the requested output. FilePassport does not collect, upload, sell, share, retain, or analyze files, filenames, document contents, identity data, browsing activity, location, device identifiers, or usage telemetry. It has no accounts, cookies, ads, backend, remotely hosted code, extension permissions, or host permissions. Closing the processing page discards selected input files from the extension's memory. Browser and store installation, update, and telemetry behavior is governed by their respective policies.
+PDF小匠 is a local document-processing extension for Microsoft Edge and Google Chrome. Files explicitly selected by the user are processed only in the extension page's memory to create the requested output. PDF小匠 does not collect, upload, sell, share, retain, or analyze files, filenames, document contents, identity data, browsing activity, location, device identifiers, or usage telemetry. It has no accounts, cookies, ads, backend, remotely hosted code, extension permissions, or host permissions. Closing the processing page discards selected input files from the extension's memory. Browser and store installation, update, and telemetry behavior is governed by their respective policies.
