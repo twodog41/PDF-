@@ -4,7 +4,7 @@ import { fileURLToPath } from 'node:url';
 import { publishableFiles } from './build-files.mjs';
 
 const dist = new URL('../dist/', import.meta.url);
-const required = ['manifest.json', 'app.html', 'popup.html', 'icons/icon-16.png', 'icons/icon-32.png', 'icons/icon-48.png', 'icons/icon-128.png', 'wasm/jbig2.wasm', 'wasm/openjpeg.wasm', 'wasm/qcms_bg.wasm'];
+const required = ['manifest.json', 'app.html', 'popup.html', 'icons/icon-16.png', 'icons/icon-32.png', 'icons/icon-48.png', 'icons/icon-128.png', 'support/wechat-pay.jpg', 'wasm/jbig2.wasm', 'wasm/openjpeg.wasm', 'wasm/qcms_bg.wasm'];
 for (const file of required) assert.ok(existsSync(new URL(file, dist)), `Missing dist/${file}`);
 
 const manifest = JSON.parse(readFileSync(new URL('manifest.json', dist), 'utf8'));

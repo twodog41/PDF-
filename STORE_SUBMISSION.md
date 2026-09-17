@@ -44,6 +44,8 @@ PDF小匠是一个不登录、不上传、没有广告的本地 PDF 工具。
 
 所有文件只在当前设备中处理。扩展不申请网站访问权限，不包含服务器、账户、广告、统计 SDK 或远程执行代码，断网也能使用。
 
+页面底部提供完全自愿的“支持开发”入口，仅显示扩展包内置的微信支付收款码。支持不会解锁任何功能；支付由微信支付处理，Microsoft、Google 和浏览器扩展商店不是收款方或赞助者。
+
 注意：强压缩可能把页面转换为图像，影响文字搜索、链接、表单和数字签名。DOCX 使用浏览器本地排版，复杂表格、浮动对象和特殊字体可能与 Microsoft Word 略有差异。
 
 ## English detailed description
@@ -64,6 +66,8 @@ Five focused workflows:
 
 Files are processed only on the user's device. The extension requests no website access or extension permissions and works offline.
 
+An optional “Support Development” button in the footer displays a bundled WeChat Pay QR code. Supporting the project unlocks no features. Payments are handled by WeChat Pay; Microsoft, Google, and the browser extension stores are not the payee or sponsor.
+
 Strong compression may rasterize pages and affect searchable text, links, forms, and digital signatures. DOCX uses local browser layout, so complex tables, floating objects, and uncommon fonts may differ from Microsoft Word.
 
 ## 隐私与审核答案
@@ -81,11 +85,11 @@ Strong compression may rasterize pages and affect searchable text, links, forms,
 
 审核测试说明：
 
-> 点击扩展图标会显示五个工具入口。选择任一入口后，在完整标签页中选择本地文件。无需账户或测试凭据。建议使用两个普通 PDF 测试合并、一个多页 PDF 测试拆分和导出、JPG/PNG 测试转 PDF、普通 DOCX 测试预览后打印。所有功能在断网状态下可运行。
+> 点击扩展图标会显示五个工具入口。选择任一入口后，在完整标签页中选择本地文件。无需账户或测试凭据。建议使用两个普通 PDF 测试合并、一个多页 PDF 测试拆分和导出、JPG/PNG 测试转 PDF、普通 DOCX 测试预览后打印。所有功能在断网状态下可运行。页面底部的“支持开发”按钮只显示内置微信收款码，不发起网络请求、不收集支付信息，也不影响或解锁功能。
 
 English reviewer note:
 
-> Click the extension icon to see five workflow entries. Open any entry and choose local files in the full-page interface. No account or test credentials are required. Test with two PDFs for merge, one multi-page PDF for split/export, JPG or PNG images for PDF creation, and a regular DOCX for local preview and printing. All features work offline.
+> Click the extension icon to see five workflow entries. Open any entry and choose local files in the full-page interface. No account or test credentials are required. Test with two PDFs for merge, one multi-page PDF for split/export, JPG or PNG images for PDF creation, and a regular DOCX for local preview and printing. All features work offline. The footer's optional “Support Development” button only shows a bundled WeChat Pay QR code; it makes no network request, collects no payment information, and does not affect or unlock functionality.
 
 ## 图形资源
 

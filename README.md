@@ -54,6 +54,8 @@ npm run build
 
 PDF小匠不申请网站访问权限，不包含服务器、账户、广告、统计 SDK 或远程执行代码。详情见[隐私政策](PRIVACY.md)和[安全政策](SECURITY.md)。
 
+页面底部的“支持开发”入口完全自愿，只显示扩展包内置的微信支付收款码，不影响或解锁任何功能。
+
 项目采用 [MIT License](LICENSE)，第三方组件许可见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ---

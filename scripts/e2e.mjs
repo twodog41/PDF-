@@ -105,6 +105,10 @@ async function captureStoreScreenshot(name) {
 try {
   await page.goto(`${url}/app.html`, { waitUntil: 'networkidle' });
   assert.equal(await page.locator('.tool-card').count(), 5);
+  await page.click('[data-support]');
+  assert.equal(await page.locator('#support-dialog').getAttribute('open'), '');
+  assert.ok(await page.locator('#support-dialog img').evaluate((image) => image instanceof HTMLImageElement && image.complete && image.naturalWidth > 0));
+  await page.click('[data-support-close]');
   mkdirSync(join(root, 'store-assets'), { recursive: true });
   await captureStoreScreenshot('screenshot-home');
 
@@ -161,7 +165,7 @@ try {
   await page.goto(`${url}/popup.html`);
   assert.equal(await page.locator('[data-tool]').count(), 5);
   assert.deepEqual(errors, []);
-  console.log('E2E passed: popup, all five tools, DOCX preview, downloads, and store screenshots.');
+  console.log('E2E passed: support dialog, popup, all five tools, DOCX preview, downloads, and store screenshots.');
 } finally {
   await browser.close();
   server.kill();

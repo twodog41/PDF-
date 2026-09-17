@@ -9,4 +9,5 @@
 - JPG and PNG to PDF
 - Local DOCX preview and print-to-PDF
 - PDF pages to JPG or PNG ZIP
+- Optional local “Support Development” QR-code dialog
 - Zero extension permissions, no backend, no analytics, no ads

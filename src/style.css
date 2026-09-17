@@ -57,6 +57,19 @@ main { min-height: calc(100vh - 126px); }
 .status-dot { color: var(--green); font-size: 10px; font-weight: 700; white-space: nowrap; }
 .status-dot::before { content: ""; display: inline-block; width: 7px; height: 7px; margin-right: 7px; border-radius: 50%; background: #16a474; }
 .site-footer { min-height: 50px; display: flex; align-items: center; justify-content: center; gap: 24px; color: #8a96a9; border-top: 1px solid #e4e9f1; font-size: 9px; letter-spacing: .3px; }
+.support-link { border: 1px solid #cfdbf4; border-radius: 999px; padding: 5px 10px; color: var(--blue); background: #edf3ff; font-size: 9px; font-weight: 700; cursor: pointer; }
+.support-link:hover, .support-link:focus-visible { border-color: #8faef2; background: #dfe9ff; outline: none; }
+.support-dialog { width: min(390px, calc(100% - 28px)); padding: 0; border: 0; border-radius: 20px; color: var(--ink); background: #fff; box-shadow: 0 28px 80px #10203d4d; }
+.support-dialog::backdrop { background: #0b173566; backdrop-filter: blur(4px); }
+.support-dialog form { position: absolute; top: 12px; right: 12px; }
+.support-close { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; border: 0; border-radius: 50%; color: #66738a; background: #eef2f7; font-size: 20px; line-height: 1; cursor: pointer; }
+.support-close:hover, .support-close:focus-visible { color: var(--blue); background: #dfe9ff; outline: none; }
+.support-dialog-content { padding: 24px; text-align: center; }
+.support-kicker { color: var(--green); font-size: 9px; font-weight: 800; letter-spacing: 1.2px; }
+.support-dialog h2 { margin: 7px 0 6px; font-size: 24px; }
+.support-dialog p { margin: 0; color: var(--muted); font-size: 11px; line-height: 1.6; }
+.support-dialog img { display: block; width: min(100%, 280px); height: auto; max-height: 58vh; margin: 16px auto; border-radius: 14px; object-fit: contain; }
+.support-dialog small { display: block; color: #7d899c; font-size: 9px; line-height: 1.6; }
 .tool-page { width: min(1100px, calc(100% - 48px)); margin: 0 auto; padding: 34px 0 70px; }
 .back { border: 0; background: transparent; color: #66738a; cursor: pointer; padding: 7px 0; font-size: 11px; }
 .back:hover { color: var(--blue); }

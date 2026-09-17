@@ -77,7 +77,18 @@ function shell(content: string) {
     <main>${content}</main>
     <footer class="site-footer">
       <span>PDF小匠 1.0</span><span>零账号 · 零上传 · 零广告</span><span>MIT 开源</span>
-    </footer>`;
+      <button class="support-link" data-support>支持开发</button>
+    </footer>
+    <dialog class="support-dialog" id="support-dialog" aria-labelledby="support-title" aria-describedby="support-description">
+      <form method="dialog"><button class="support-close" data-support-close aria-label="关闭支持开发窗口">×</button></form>
+      <div class="support-dialog-content">
+        <span class="support-kicker">完全自愿</span>
+        <h2 id="support-title">支持 PDF小匠</h2>
+        <p id="support-description">如果 PDF小匠帮到了你，可以使用微信扫一扫支持项目维护。</p>
+        <img src="./support/wechat-pay.jpg" alt="微信支付收款码" width="828" height="1120">
+        <small>所有功能始终免费，支持不会解锁额外功能。付款由微信支付处理；Microsoft、Google 和浏览器商店不是收款方或赞助者。</small>
+      </div>
+    </dialog>`;
 }
 
 function homeView() {
@@ -212,6 +223,9 @@ function render() {
 }
 
 function bindCommonEvents() {
+  const supportDialog = root.querySelector<HTMLDialogElement>('#support-dialog');
+  root.querySelector<HTMLElement>('[data-support]')?.addEventListener('click', () => supportDialog?.showModal());
+  supportDialog?.addEventListener('click', (event) => { if (event.target === supportDialog) supportDialog.close(); });
   root.querySelectorAll<HTMLElement>('[data-home]').forEach((element) => element.addEventListener('click', () => setTool(null)));
   root.querySelectorAll<HTMLElement>('[data-tool]').forEach((element) => element.addEventListener('click', () => setTool(element.dataset.tool as ToolId)));
   root.querySelectorAll<HTMLElement>('[data-reset]').forEach((element) => element.addEventListener('click', () => {
