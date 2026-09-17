@@ -7,7 +7,7 @@
 - 产品名称：`PDF小匠 — 本地 PDF 工具`
 - 英文名称：`PDF小匠 — Local PDF Tools`
 - 类别：工具 / Tools
-- 版本：`1.0.1`
+- 版本：`1.0.2`
 - 定价：免费
 - 可见性：公开
 - 单一用途：`在用户设备本地创建、压缩、合并、拆分和导出 PDF 文件，不上传文档。`
@@ -104,8 +104,8 @@ English reviewer note:
 
 ## 上传文件
 
-- Chrome：`artifacts/pdf-xiaojiang-chrome-1.0.1.zip`
-- Edge：`artifacts/pdf-xiaojiang-edge-1.0.1.zip`
+- Chrome：`artifacts/pdf-xiaojiang-chrome-1.0.2.zip`
+- Edge：`artifacts/pdf-xiaojiang-edge-1.0.2.zip`
 - 校验和：`artifacts/SHA256SUMS.txt`
 
 ## 首次发布前：GitHub 与公开页面
@@ -120,7 +120,7 @@ English reviewer note:
 
 1. 使用长期持有的 Google 账号登录，开启两步验证，完成一次性开发者注册付费。
 2. 在 Account 页面填写发布者名称 `PDF小匠`、联系邮箱并完成邮箱验证。
-3. 点击 **Add new item**，上传 `artifacts/pdf-xiaojiang-chrome-1.0.1.zip`。
+3. 点击 **Add new item**，上传 `artifacts/pdf-xiaojiang-chrome-1.0.2.zip`。
 4. 在 **Store Listing** 填入本文件的中英文说明，类别选 **Tools**，上传 128×128 图标、三张截图和两张宣传图。
 5. 在 **Privacy practices**：粘贴“单一用途”；权限列表应为空；远程代码选 **No**；数据类型均不勾选并完成 Limited Use 声明；填写公开隐私政策 URL。
 6. 在 **Distribution** 选择免费、公开及目标地区；本项目无需测试账号。
@@ -131,7 +131,7 @@ English reviewer note:
 官方入口：[Partner Center](https://partner.microsoft.com/dashboard/)。官方流程：[注册 Edge 开发者](https://learn.microsoft.com/en-us/microsoft-edge/extensions-chromium/publish/create-dev-account)、[发布扩展](https://learn.microsoft.com/en-us/microsoft-edge/extensions/publish/publish-extension)。Edge 扩展开发者注册目前不收费。
 
 1. 用个人 Microsoft 账号注册 Edge Program；个人开源项目选择 **Individual**。账号类型与国家/地区提交后不能直接更改。
-2. 进入 Partner Center → **Edge** → **Create new extension**，上传 `artifacts/pdf-xiaojiang-edge-1.0.1.zip`。
+2. 进入 Partner Center → **Edge** → **Create new extension**，上传 `artifacts/pdf-xiaojiang-edge-1.0.2.zip`。
 3. **Availability** 选择 **Public** 和目标市场；**Properties** 选择工具类目，填写主页与支持地址。
 4. **Privacy**：粘贴“单一用途”；权限应为空；远程代码选 **No**；数据收集项不勾选；填写公开隐私政策 URL。
 5. **Store listings** 分别完成中文和英文条目。上传 300×300 图标、宣传图和三张 1280×800 截图；详细说明直接使用本文件内容。

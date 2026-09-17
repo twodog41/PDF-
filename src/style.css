@@ -86,7 +86,11 @@ main { min-height: calc(100vh - 126px); }
 .drop-zone small { margin-top: 20px; color: #8a96a9; font-size: 10px; }
 .file-summary { display: flex; align-items: center; gap: 9px; padding: 11px 14px; background: #edf2f8; border-radius: 10px; color: #5e6c83; font-size: 10px; }
 .file-summary b { color: #2d3e59; }
-.file-summary button { margin-left: auto; border: 0; background: transparent; color: var(--blue); font-size: 10px; cursor: pointer; }
+.file-summary button { border: 0; background: transparent; color: var(--blue); font-size: 10px; cursor: pointer; }
+.file-summary button:first-of-type { margin-left: auto; }
+.file-summary input { display: none; }
+.merge-workspace { border-radius: 14px; outline: 2px dashed transparent; outline-offset: 10px; transition: .15s; }
+.merge-workspace.adding-files { outline-color: var(--blue); background: #f8faff; }
 .workspace-title { display: flex; justify-content: space-between; align-items: flex-end; margin: 25px 0 14px; }
 .workspace-title h2, .docx-toolbar h2 { margin: 0; font-size: 20px; }
 .workspace-title p, .docx-toolbar p { margin: 5px 0 0; color: var(--muted); font-size: 11px; }

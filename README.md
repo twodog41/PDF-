@@ -16,7 +16,7 @@ PDF小匠是一款适用于 Microsoft Edge 和 Google Chrome 的本地 PDF 浏�
 
 ## 功能
 
-- 合并多个 PDF，并通过缩略图调整页面顺序
+- 合并多个 PDF，可继续选择或拖入文件，并通过缩略图调整页面顺序
 - 拆分 PDF、提取指定页或逐页导出
 - 将 PDF 尽量压缩到指定大小
 - 将 JPG、PNG 或 DOCX 转为 PDF

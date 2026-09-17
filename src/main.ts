@@ -152,12 +152,12 @@ function pageGrid(selectable = false) {
   </div>`;
 }
 
-function fileSummary() {
-  return `<div class="file-summary"><span>${files.length} 个文件</span><b>${formatBytes(files.reduce((sum, file) => sum + file.size, 0))}</b><button data-reset>重新选择</button></div>`;
+function fileSummary(canAppend = false) {
+  return `<div class="file-summary"><span>${files.length} 个文件</span><b>${formatBytes(files.reduce((sum, file) => sum + file.size, 0))}</b>${canAppend ? '<button data-add-files>继续添加 PDF</button><input id="append-file-input" type="file" accept=".pdf,application/pdf" multiple>' : ''}<button data-reset>重新选择</button></div>`;
 }
 
 function mergeWorkspace() {
-  return `${fileSummary()}<div class="workspace-title"><div><h2>调整页面顺序</h2><p>拖拽缩略图，或使用方向按钮。最终按从左到右、从上到下合并。</p></div><span>${pageRefs.length} 页</span></div>${pageGrid()}<div class="action-bar"><span>页面顺序已保存于当前页面，不会上传。</span><button class="primary" data-action="merge">合并并下载</button></div>`;
+  return `<div class="merge-workspace" data-append-drop>${fileSummary(true)}<div class="workspace-title"><div><h2>调整页面顺序</h2><p>拖拽缩略图，或使用方向按钮。最终按从左到右、从上到下合并。</p></div><span>${pageRefs.length} 页</span></div>${pageGrid()}<div class="action-bar"><span>可继续添加 PDF 或将新文件拖入此页面，文件不会上传。</span><button class="primary" data-action="merge">合并并下载</button></div></div>`;
 }
 
 function splitWorkspace() {
@@ -238,7 +238,31 @@ function bindCommonEvents() {
     const input = root.querySelector<HTMLInputElement>('#target-size');
     if (input) input.value = button.dataset.target ?? '5';
   }));
+  bindMergeAppend();
   bindFileReordering();
+}
+
+function bindMergeAppend() {
+  const workspace = root.querySelector<HTMLElement>('[data-append-drop]');
+  const input = root.querySelector<HTMLInputElement>('#append-file-input');
+  if (!workspace || !input) return;
+  root.querySelector<HTMLElement>('[data-add-files]')?.addEventListener('click', () => input.click());
+  input.addEventListener('change', () => void appendMergeFiles([...input.files ?? []]));
+  for (const name of ['dragenter', 'dragover']) workspace.addEventListener(name, (event) => {
+    const dragEvent = event as DragEvent;
+    if (!dragEvent.dataTransfer?.types.includes('Files')) return;
+    event.preventDefault();
+    workspace.classList.add('adding-files');
+  });
+  for (const name of ['dragleave', 'drop']) workspace.addEventListener(name, (event) => {
+    const dragEvent = event as DragEvent;
+    if (!dragEvent.dataTransfer?.types.includes('Files')) return;
+    event.preventDefault();
+    workspace.classList.remove('adding-files');
+  });
+  workspace.addEventListener('drop', (event) => {
+    if (event.dataTransfer?.files.length) void appendMergeFiles([...event.dataTransfer.files]);
+  });
 }
 
 function bindDropZone(tool: NonNullable<(typeof TOOLS)[number]>) {
@@ -280,6 +304,24 @@ async function acceptFiles(selected: File[], tool: NonNullable<(typeof TOOLS)[nu
     }
   } catch (error) {
     files = [];
+    showError(error);
+  }
+}
+
+async function appendMergeFiles(selected: File[]) {
+  const tool = TOOLS.find((item) => item.id === 'merge');
+  if (!tool) return;
+  try {
+    validateFiles(selected, tool);
+    const fileIndexOffset = files.length;
+    await runBusy('正在添加 PDF', async () => {
+      const appendedRefs = await createPdfPageRefs(selected, updateProgress);
+      files = [...files, ...selected];
+      pageRefs = [...pageRefs, ...appendedRefs.map((page) => ({ ...page, fileIndex: page.fileIndex + fileIndexOffset }))]
+        .map((page) => ({ ...page, label: `${safeBaseName(files[page.fileIndex]?.name ?? 'file')} · ${page.pageIndex + 1}` }));
+      notice = null;
+    });
+  } catch (error) {
     showError(error);
   }
 }

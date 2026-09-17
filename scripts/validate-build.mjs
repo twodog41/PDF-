@@ -9,7 +9,7 @@ for (const file of required) assert.ok(existsSync(new URL(file, dist)), `Missing
 
 const manifest = JSON.parse(readFileSync(new URL('manifest.json', dist), 'utf8'));
 assert.equal(manifest.manifest_version, 3);
-assert.equal(manifest.version, '1.0.1');
+assert.equal(manifest.version, '1.0.2');
 assert.ok(!manifest.permissions?.length, 'The extension must not request permissions');
 assert.ok(!manifest.host_permissions?.length, 'The extension must not request host permissions');
 assert.match(manifest.content_security_policy.extension_pages, /connect-src 'self'/);

@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2 — 2026-09-17
+
+- Allow adding more PDFs by file picker or drag and drop after the initial merge selection
+- Preserve the current page order when appending PDFs
+
 ## 1.0.1 — 2026-09-17
 
 - Fix Microsoft Edge installation by tightening the extension worker CSP

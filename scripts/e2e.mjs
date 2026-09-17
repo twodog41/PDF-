@@ -113,15 +113,26 @@ try {
   await captureStoreScreenshot('screenshot-home');
 
   await page.goto(`${url}/app.html?tool=merge`);
-  await page.locator('#file-input').setInputFiles([
-    { name: '合同正文.pdf', mimeType: 'application/pdf', buffer: pdf },
-    { name: '签字附件.pdf', mimeType: 'application/pdf', buffer: await samplePdf(1) },
-  ]);
+  await page.locator('#file-input').setInputFiles({ name: '合同正文.pdf', mimeType: 'application/pdf', buffer: pdf });
   await page.waitForSelector('.page-card');
+  assert.equal(await page.locator('.page-card').count(), 2);
+  await page.locator('[data-page-index="0"] [data-move="down"]').click();
+  assert.match(await page.locator('.page-meta > span:nth-child(2)').first().innerText(), /第 2 页/);
+  const droppedPdf = (await samplePdf(1)).toString('base64');
+  await page.evaluate((base64) => {
+    const bytes = Uint8Array.from(atob(base64), (character) => character.charCodeAt(0));
+    const transfer = new DataTransfer();
+    transfer.items.add(new File([bytes], '签字附件.pdf', { type: 'application/pdf' }));
+    document.querySelector('[data-append-drop]')?.dispatchEvent(new DragEvent('drop', { bubbles: true, cancelable: true, dataTransfer: transfer }));
+  }, droppedPdf);
+  await page.waitForFunction(() => document.querySelectorAll('.page-card').length === 3);
   assert.equal(await page.locator('.page-card').count(), 3);
+  assert.match(await page.locator('.page-meta > span:nth-child(2)').first().innerText(), /合同正文 · 2/);
+  await page.locator('#append-file-input').setInputFiles({ name: '补充附件.pdf', mimeType: 'application/pdf', buffer: await samplePdf(1) });
+  await page.waitForFunction(() => document.querySelectorAll('.page-card').length === 4);
   await captureStoreScreenshot('screenshot-merge');
   const merged = await downloadAfter('[data-action="merge"]');
-  assert.equal((await PDFDocument.load(merged)).getPageCount(), 3);
+  assert.equal((await PDFDocument.load(merged)).getPageCount(), 4);
 
   await page.goto(`${url}/app.html?tool=split`);
   await page.locator('#file-input').setInputFiles({ name: '课程讲义.pdf', mimeType: 'application/pdf', buffer: pdf });
