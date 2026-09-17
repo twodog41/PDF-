@@ -1,6 +1,6 @@
 # PDF小匠商店提交材料
 
-发布前只需完成带 `【账号信息】` 的项目，其余内容可以直接复制到商店后台。
+以下内容已经按当前 GitHub 仓库填写，可以直接复制到商店后台。
 
 ## 通用信息
 
@@ -12,9 +12,9 @@
 - 可见性：公开
 - 单一用途：`在用户设备本地创建、压缩、合并、拆分和导出 PDF 文件，不上传文档。`
 - Single purpose: `Create, compress, merge, split, and export PDF files locally on the user's device without uploading documents.`
-- 主页 URL：`https://github.com/【账号信息：GitHub 用户名】/pdf-xiaojiang`
-- 支持 URL：`https://【账号信息：GitHub 用户名】.github.io/pdf-xiaojiang/support.html`
-- 隐私政策 URL：`https://【账号信息：GitHub 用户名】.github.io/pdf-xiaojiang/privacy.html`
+- 主页 URL：`https://github.com/twodog41/PDF-`
+- 支持 URL：`https://twodog41.github.io/PDF-/support.html`
+- 隐私政策 URL：`https://twodog41.github.io/PDF-/privacy.html`
 
 ## 简短说明
 
@@ -106,10 +106,9 @@ English reviewer note:
 
 ## 首次发布前：GitHub 与公开页面
 
-1. 【账号信息】创建 GitHub 仓库 `pdf-xiaojiang`，推送本目录。
+1. GitHub 仓库已发布到 `https://github.com/twodog41/PDF-`。
 2. 在 GitHub Settings → Pages 中选择从 `main` 分支的 `/docs` 发布。
-3. 将上面的三个 URL 中 GitHub 用户名替换为实际值，并确认可以公开访问。
-4. 用无痕窗口打开隐私政策 URL，确认无需登录即可访问，再开始商店提交。
+3. 用无痕窗口打开隐私政策 URL，确认无需登录即可访问，再开始商店提交。
 
 ## Chrome Web Store 上架步骤
 
