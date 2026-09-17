@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1 — 2026-09-17
+
+- Fix Microsoft Edge installation by tightening the extension worker CSP
+
 ## 1.0.0 — 2026-09-17
 
 - Initial Microsoft Edge and Google Chrome release

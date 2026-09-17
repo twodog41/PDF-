@@ -11,7 +11,7 @@ const root = resolve(import.meta.dirname, '..');
 const port = 4174;
 const url = `http://127.0.0.1:${port}`;
 const chromePaths = process.platform === 'win32'
-  ? ['C:/Program Files/Google/Chrome/Application/chrome.exe', 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe']
+  ? ['C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', 'C:/Program Files/Google/Chrome/Application/chrome.exe']
   : ['/usr/bin/google-chrome', '/usr/bin/chromium', '/usr/bin/chromium-browser'];
 const executablePath = chromePaths.find(existsSync);
 if (!executablePath) throw new Error('Chrome or Edge was not found; set a supported browser path in scripts/e2e.mjs');
